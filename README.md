@@ -36,7 +36,7 @@ In Render dashboard → your service → **Environment** tab → **Add Secret Fi
 | Variable | Value | How to get it |
 |----------|-------|---------------|
 | `TELEGRAM_BOT_TOKEN` | your bot token | From [@BotFather](https://t.me/botfather) on Telegram |
-| `TELEGRAM_WEBHOOK_URL` | `https://hermes-agent.onrender.com/webhook` | Your Render service URL + `/webhook` |
+| `TELEGRAM_WEBHOOK_URL` | `https://hermes-render-0vzs.onrender.com/webhook` | Your Render service URL + `/webhook` (use YOUR actual URL) |
 | `TELEGRAM_WEBHOOK_PORT` | `10000` | Render free tier default port |
 | `TELEGRAM_WEBHOOK_SECRET` | a random string | Generate: `python3 -c "import secrets; print(secrets.token_urlsafe(32))"` |
 | `OPENCODE_ZEN_API_KEY` | your API key | From your LLM provider |
@@ -51,7 +51,7 @@ Click **Create Web Service**. Render builds and deploys (3–5 min).
 2. Click **Add New Monitor**
 3. Monitor Type: **HTTP(s)**
 4. Friendly Name: `Hermes Keepalive`
-5. URL: `https://hermes-agent.onrender.com/health`
+5. URL: `https://hermes-render-0vzs.onrender.com/`
 6. Monitoring Interval: **5 minutes**
 7. Click **Create Monitor**
 
