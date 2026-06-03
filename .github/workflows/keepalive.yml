@@ -1,0 +1,18 @@
+name: Keep Render Awake
+
+on:
+  schedule:
+    # Every 5 minutes — Render free tier sleeps after 15 min of inactivity
+    - cron: '*/5 * * * *'
+  # Allow manual trigger too
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render to reset idle timer
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 15 https://hermes-render-0vzs.onrender.com/)
+          echo "Render responded with: $STATUS"
+          # 404 is expected (root has no content). Any response = kept alive.
